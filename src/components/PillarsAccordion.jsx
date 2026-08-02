@@ -43,6 +43,46 @@ const pillarsData = {
   }
 };
 
+const PillarContent = ({ p }) => (
+  <div className="pillar-content-box card-glass">
+    <div className="pillar-detail-wrapper">
+      <div className="pillar-detail-header">
+        <i className={`fa-solid ${p.icon} pillar-main-icon`}></i>
+        <div>
+          <h4>{p.title}</h4>
+          <p className="pillar-main-desc">{p.desc}</p>
+        </div>
+      </div>
+
+      {p.evaluations ? (
+        <div className="pillar-evals-grid">
+          {p.evaluations.map((e, idx) => (
+            <div key={idx} className="pillar-eval-card">
+              <i className="fa-solid fa-microscope eval-icon"></i>
+              <div>
+                <strong>{e.name}</strong>
+                <p>{e.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="pillar-items-list">
+          {p.items.map((item, idx) => (
+            <div key={idx} className="pillar-item-row">
+              <i className="fa-solid fa-circle-check text-orange"></i>
+              <div>
+                <strong>{item.name}</strong>
+                <p>{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+);
+
 export const PillarsAccordion = () => {
   const [activeTab, setActiveTab] = useState('tecnico');
   const p = pillarsData[activeTab];
@@ -53,57 +93,48 @@ export const PillarsAccordion = () => {
         <i className="fa-solid fa-layer-group"></i> Los 4 Pilares Metodológicos del Método ZEP
       </h3>
 
-      <div className="pillars-tabs">
-        <button className={`pillar-tab-btn ${activeTab === 'tecnico' ? 'active' : ''}`} onClick={() => setActiveTab('tecnico')}>
-          <i className="fa-solid fa-futbol"></i> 1. Aspecto Técnico
-        </button>
-        <button className={`pillar-tab-btn ${activeTab === 'fisico' ? 'active' : ''}`} onClick={() => setActiveTab('fisico')}>
-          <i className="fa-solid fa-bolt"></i> 2. Físico & Evaluaciones
-        </button>
-        <button className={`pillar-tab-btn ${activeTab === 'tactico' ? 'active' : ''}`} onClick={() => setActiveTab('tactico')}>
-          <i className="fa-solid fa-diagram-project"></i> 3. Aspecto Táctico
-        </button>
-        <button className={`pillar-tab-btn ${activeTab === 'psicologico' ? 'active' : ''}`} onClick={() => setActiveTab('psicologico')}>
-          <i className="fa-solid fa-brain"></i> 4. Psicológico & Fair Play
-        </button>
+      {/* VISTA DESKTOP (Pestañas laterales) */}
+      <div className="pillars-desktop-view">
+        <div className="pillars-tabs">
+          <button className={`pillar-tab-btn ${activeTab === 'tecnico' ? 'active' : ''}`} onClick={() => setActiveTab('tecnico')}>
+            <i className="fa-solid fa-futbol"></i> 1. Aspecto Técnico
+          </button>
+          <button className={`pillar-tab-btn ${activeTab === 'fisico' ? 'active' : ''}`} onClick={() => setActiveTab('fisico')}>
+            <i className="fa-solid fa-bolt"></i> 2. Físico & Evaluaciones
+          </button>
+          <button className={`pillar-tab-btn ${activeTab === 'tactico' ? 'active' : ''}`} onClick={() => setActiveTab('tactico')}>
+            <i className="fa-solid fa-diagram-project"></i> 3. Aspecto Táctico
+          </button>
+          <button className={`pillar-tab-btn ${activeTab === 'psicologico' ? 'active' : ''}`} onClick={() => setActiveTab('psicologico')}>
+            <i className="fa-solid fa-brain"></i> 4. Psicológico & Fair Play
+          </button>
+        </div>
+        
+        {p && <PillarContent p={p} />}
       </div>
 
-      <div className="pillar-content-box card-glass">
-        <div className="pillar-detail-wrapper">
-          <div className="pillar-detail-header">
-            <i className={`fa-solid ${p.icon} pillar-main-icon`}></i>
-            <div>
-              <h4>{p.title}</h4>
-              <p className="pillar-main-desc">{p.desc}</p>
-            </div>
-          </div>
-
-          {p.evaluations ? (
-            <div className="pillar-evals-grid">
-              {p.evaluations.map((e, idx) => (
-                <div key={idx} className="pillar-eval-card">
-                  <i className="fa-solid fa-microscope eval-icon"></i>
-                  <div>
-                    <strong>{e.name}</strong>
-                    <p>{e.desc}</p>
-                  </div>
+      {/* VISTA MOBILE (Acordeón real) */}
+      <div className="pillars-mobile-view">
+        {Object.entries(pillarsData).map(([key, data]) => {
+          const isActive = activeTab === key;
+          return (
+            <div key={key} className="mobile-accordion-item">
+              <button 
+                className={`mobile-accordion-header ${isActive ? 'active' : ''}`} 
+                onClick={() => setActiveTab(isActive ? '' : key)}
+              >
+                <span><i className={`fa-solid ${data.icon}`}></i> {data.title.split('&')[0]}</span>
+                <i className={`fa-solid fa-chevron-${isActive ? 'up' : 'down'}`}></i>
+              </button>
+              
+              {isActive && (
+                <div className="mobile-accordion-body">
+                  <PillarContent p={data} />
                 </div>
-              ))}
+              )}
             </div>
-          ) : (
-            <div className="pillar-items-list">
-              {p.items.map((item, idx) => (
-                <div key={idx} className="pillar-item-row">
-                  <i className="fa-solid fa-circle-check text-orange"></i>
-                  <div>
-                    <strong>{item.name}</strong>
-                    <p>{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
+          );
+        })}
       </div>
     </div>
   );

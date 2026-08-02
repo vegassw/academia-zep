@@ -104,17 +104,17 @@ export const SquadPage = () => {
               <table className="tm-squad-table">
                 <thead>
                   <tr>
-                    <th style={{ width: 50 }}>#</th>
-                    <th>FUTBOLISTA</th>
-                    <th>POSICIÓN</th>
+                    <th className="hide-mobile" style={{ width: 40 }}>#</th>
+                    <th>NOMBRE</th>
+                    <th>POS</th>
                     <th>EDAD</th>
-                    <th>ALTURA</th>
-                    <th>PIE</th>
-                    <th>NAC.</th>
-                    <th>PJ</th>
-                    <th>GOLES</th>
-                    <th>ASIST</th>
-                    <th>RATING</th>
+                    <th className="hide-mobile">ALTURA</th>
+                    <th className="hide-mobile">PIE</th>
+                    <th className="hide-mobile">NAC.</th>
+                    <th className="hide-mobile">PJ</th>
+                    <th className="hide-mobile">GOL</th>
+                    <th className="hide-mobile">ASI</th>
+                    <th className="hide-mobile">RATING</th>
                     <th style={{ textAlign: 'right' }}>FICHA</th>
                   </tr>
                 </thead>
@@ -128,15 +128,15 @@ export const SquadPage = () => {
                   ) : (
                     filteredPlayers.map(player => (
                       <tr key={player.id} className={player.id === 'p1' ? 'highlight-matias-row' : ''}>
-                        <td className="num-bold">#{player.number}</td>
+                        <td className="num-bold hide-mobile">#{player.number}</td>
                         <td className="player-tm-cell">
                           <img src={player.avatar} alt={player.name} className="tm-avatar-img" />
-                          <div>
+                          <div className="tm-player-info">
                             <strong className="tm-player-name">
                               {player.name}
                               {player.isNationalCall && <span className="ml-2 text-xs text-gold font-bold"> [Selección 🇨🇱]</span>}
                             </strong>
-                            <span className="tm-player-sub">{player.categoryLabel} • {player.positionFull}</span>
+                            <span className="tm-player-sub hide-mobile">{player.categoryLabel} • {player.positionFull}</span>
                           </div>
                         </td>
                         <td>
@@ -144,17 +144,17 @@ export const SquadPage = () => {
                             {player.positionShort}
                           </span>
                         </td>
-                        <td>{player.age} años</td>
-                        <td>{player.height || '1.70 m'}</td>
-                        <td>{player.foot}</td>
-                        <td>{player.nation}</td>
-                        <td className="num-sports">{player.history.partidos}</td>
-                        <td className="num-bold text-orange">{player.history.goles}</td>
-                        <td className="num-bold text-gold">{player.history.asistencias}</td>
-                        <td className="rating-cell">⭐ {player.rating.toFixed(1)}</td>
+                        <td className="num-sports">{player.age}</td>
+                        <td className="hide-mobile">{player.height || '1.70m'}</td>
+                        <td className="hide-mobile">{player.foot}</td>
+                        <td className="hide-mobile">{player.nation}</td>
+                        <td className="num-sports hide-mobile">{player.history.partidos}</td>
+                        <td className="num-bold text-orange hide-mobile">{player.history.goles}</td>
+                        <td className="num-bold text-gold hide-mobile">{player.history.asistencias}</td>
+                        <td className="rating-cell hide-mobile">⭐ {player.rating.toFixed(1)}</td>
                         <td style={{ textAlign: 'right' }}>
                           <Link to={`/jugador/${player.id}`} className="table-btn-action">
-                            Ver Ficha <ArrowRight size={14} className="inline ml-1" />
+                            <span className="hide-mobile">Ver Ficha</span> <ArrowRight size={14} className="inline ml-1" />
                           </Link>
                         </td>
                       </tr>

@@ -11,7 +11,7 @@ export const ClubAffiliations = () => {
       borderColor: "#ffffff",
       desc: "Veedurías directas y partidos amistosos de prueba para las categorías Sub-12 a Sub-16.",
       badgeText: "⚪⚫ ALBO",
-      logoUrl: "https://upload.wikimedia.org/wikipedia/commons/2/25/Escudo_de_Colo-Colo.svg"
+      logoUrl: "/logos/colo-colo.png"
     },
     {
       name: "Universidad de Chile",
@@ -20,7 +20,7 @@ export const ClubAffiliations = () => {
       borderColor: "#e30613",
       desc: "Convenio de formación pedagógica y pruebas periódicas en el Centro Deportivo Azul (CDA).",
       badgeText: "🔵🔴 LA U",
-      logoUrl: "https://upload.wikimedia.org/wikipedia/commons/0/07/Escudo_Club_Universidad_de_Chile.svg"
+      logoUrl: "/logos/udechile.png"
     },
     {
       name: "CD Palestino",
@@ -29,7 +29,7 @@ export const ClubAffiliations = () => {
       borderColor: "#ee2e24",
       desc: "Intercambio de talentos juveniles, clínicas de perfeccionamiento táctico y pruebas formativas.",
       badgeText: "🟢🔴 ÁRABE",
-      logoUrl: "https://upload.wikimedia.org/wikipedia/commons/5/52/Club_Deportivo_Palestino.svg"
+      logoUrl: "/logos/palestino.png"
     },
     {
       name: "Universidad Católica",
@@ -38,7 +38,7 @@ export const ClubAffiliations = () => {
       borderColor: "#ffffff",
       desc: "Medición antropométrica conjunta y proyección de talentos en el Complejo Raimundo Tupper.",
       badgeText: "⚪🔵 CRUZADOS",
-      logoUrl: "https://upload.wikimedia.org/wikipedia/commons/9/94/Logo_Club_Deportivo_Universidad_Catolica.svg"
+      logoUrl: "/logos/ucatolica.png"
     },
     {
       name: "Unión Española",
@@ -47,7 +47,7 @@ export const ClubAffiliations = () => {
       borderColor: "#ffc72c",
       desc: "Visitas técnicas de evaluadores oficiales al Complejo Deportivo ZEP.",
       badgeText: "🔴🟡 HISPANO",
-      logoUrl: "https://upload.wikimedia.org/wikipedia/commons/1/18/Unión_Española.svg"
+      logoUrl: "/logos/uespanola.png"
     }
   ];
 
