@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plantilla Oficial & Valores Formativos | Academia ZEP (Transfermarkt Style)</title>
+  <meta name="description" content="Plantilla oficial de Academia ZEP estilo Transfermarkt. Fichas de jugadores, valores de mercado formativos, posiciones, edades y estadísticas.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,500;0,700;1,700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <span class="badge-live"><i class="fa-solid fa-circle-dot"></i> DATO DE MERCADO FORMATIVO</span>
+      <span class="top-bar-text">Academia ZEP cuenta con 4 jugadores convocados a la Selección Regional Juvenil 2026.</span>
+      <a href="jugador-detalle.html?id=p1" class="top-bar-link">Ver Ficha Matías Ovalles <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="navbar-brand">
+        <div class="logo-fire-wrap">
+          <canvas id="logoFireCanvas" width="60" height="60"></canvas>
+          <img src="assets/zep-logo.png" alt="Academia ZEP Logo" class="brand-logo" id="navLogo3D">
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">ACADEMIA <span class="text-orange">ZEP</span></span>
+          <span class="brand-sub">FÚTBOL FORMATIVO DE ALTO NIVEL</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="plantilla.html" class="nav-link active">Plantilla Transfermarkt</a>
+        <a href="jugador-detalle.html?id=p1" class="nav-link">Perfil Jugador</a>
+        <a href="escuelas.html" class="nav-link">Escuelas & Pilares ZEP</a>
+        <a href="index.html#contacto" class="nav-link nav-btn-cta">Inscribirse</a>
+      </nav>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- TRANSFERMARKT HEADER SUMMARY BANNER -->
+  <section class="tm-banner-section">
+    <div class="container">
+      <div class="tm-header-card card-glass">
+        <div class="tm-header-main">
+          <div class="tm-badge-shield">
+            <img src="assets/zep-logo.png" alt="Escudo ZEP">
+          </div>
+          <div>
+            <div class="tm-sub-title">PLANTILLA OFICIAL FORMATIVA 2026/2027</div>
+            <h1 class="tm-title">Academia ZEP — Squad & Market Values</h1>
+            <p class="tm-meta-desc">Visión estilo Transfermarkt con fichas técnicas, valores formativos estimados, altura, pie dominante y estadísticas de competencia.</p>
+          </div>
+        </div>
+
+        <div class="tm-stats-grid">
+          <div class="tm-stat-box">
+            <span class="tm-stat-label">Valor de Mercado Total</span>
+            <span class="tm-stat-val text-gold">€1,645,000</span>
+          </div>
+          <div class="tm-stat-box">
+            <span class="tm-stat-label">Promedio de Edad</span>
+            <span class="tm-stat-val">13.8 Años</span>
+          </div>
+          <div class="tm-stat-box">
+            <span class="tm-stat-label">Internacionales</span>
+            <span class="tm-stat-val text-orange">4 Convocados</span>
+          </div>
+          <div class="tm-stat-box">
+            <span class="tm-stat-label">Estadio Base</span>
+            <span class="tm-stat-val">Complejo ZEP</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN SQUAD LISTING SECTION -->
+  <section class="section">
+    <div class="container">
+
+      <!-- FILTERS TOOLBAR -->
+      <div class="tm-filters-bar card-glass">
+        <div class="filter-group">
+          <label><i class="fa-solid fa-filter"></i> Posición:</label>
+          <select id="posFilterSelect" onchange="applySquadFilters()">
+            <option value="all">Todas las posiciones</option>
+            <option value="por">Guardametas (POR)</option>
+            <option value="def">Defensas (DEF)</option>
+            <option value="med">Centrocampistas (MED)</option>
+            <option value="del">Delanteros (DEL)</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label><i class="fa-solid fa-users"></i> Categoría:</label>
+          <select id="catFilterSelect" onchange="applySquadFilters()">
+            <option value="all">Todas las categorías</option>
+            <option value="sub8">Sub-8</option>
+            <option value="sub10">Sub-10</option>
+            <option value="sub12">Sub-12</option>
+            <option value="sub14" selected>Sub-14</option>
+            <option value="sub16">Sub-16</option>
+            <option value="pro">Sub-18 Pro</option>
+          </select>
+        </div>
+
+        <div class="filter-group search-group">
+          <input type="text" id="playerSearchInput" placeholder="Buscar jugador por nombre..." onkeyup="applySquadFilters()">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        </div>
+      </div>
+
+      <!-- TRANSFERMARKT DETAILED SQUAD TABLE -->
+      <div class="card-glass tm-table-card">
+        <div class="table-responsive">
+          <table class="tm-squad-table">
+            <thead>
+              <tr>
+                <th style="width: 50px;">#</th>
+                <th>FUTBOLISTA</th>
+                <th>POSICIÓN</th>
+                <th>EDAD</th>
+                <th>ALTURA</th>
+                <th>PIE</th>
+                <th>NAC.</th>
+                <th>VALOR ESTIMADO</th>
+                <th>PJ</th>
+                <th>GOLES</th>
+                <th>ASIST</th>
+                <th>RATING</th>
+                <th style="text-align: right;">ACCIONES</th>
+              </tr>
+            </thead>
+            <tbody id="squadTableBody">
+              <!-- Dynamically populated by app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/zep-logo.png" alt="Academia ZEP Logo" style="height: 40px;">
+          <span class="brand-title">ACADEMIA <span class="text-orange">ZEP</span></span>
+        </div>
+        <p class="footer-desc">Formación de futbolistas con valores, metodología moderna y tecnología aplicada al deporte.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="plantilla.html">Plantilla Transfermarkt</a>
+        <a href="escuelas.html">Escuelas ZEP</a>
+        <a href="jugador-detalle.html?id=p1">Perfil Matías Ovalles</a>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contacto & Complejo</h4>
+        <p><i class="fa-solid fa-location-dot text-orange"></i> Santiago de Chile</p>
+        <p><i class="fa-solid fa-phone text-orange"></i> +56 9 8765 4321</p>
+        <p><i class="fa-solid fa-envelope text-orange"></i> contacto@academiazep.cl</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 Academia ZEP. Prototipo de alto nivel visual para cliente.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      renderTransfermarktSquadTable();
+    });
+
+    function renderTransfermarktSquadTable() {
+      applySquadFilters();
+    }
+
+    function applySquadFilters() {
+      const tbody = document.getElementById("squadTableBody");
+      if (!tbody) return;
+
+      const posVal = document.getElementById("posFilterSelect").value;
+      const catVal = document.getElementById("catFilterSelect").value;
+      const searchVal = document.getElementById("playerSearchInput").value.toLowerCase();
+
+      let list = playersData.filter(p => {
+        const matchesPos = (posVal === 'all' || p.positionGroup === posVal);
+        const matchesCat = (catVal === 'all' || p.category === catVal);
+        const matchesSearch = p.name.toLowerCase().includes(searchVal);
+        return matchesPos && matchesCat && matchesSearch;
+      });
+
+      if (list.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="13" style="text-align: center; padding: 2rem; color: var(--zep-text-muted);">
+              <i class="fa-solid fa-circle-exclamation text-orange" style="font-size: 1.5rem; margin-bottom: 0.5rem; display: block;"></i>
+              No se encontraron jugadores para los filtros seleccionados.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = list.map(player => `
+        <tr class="${player.id === 'p1' ? 'highlight-matias-row' : ''}">
+          <td class="num-bold">#${player.number}</td>
+          <td class="player-tm-cell">
+            <img src="${player.avatar}" alt="${player.name}" class="tm-avatar-img">
+            <div>
+              <strong class="tm-player-name">${player.name}</strong>
+              <span class="tm-player-sub">${player.categoryLabel} • ${player.positionFull}</span>
+            </div>
+          </td>
+          <td><span class="pos-badge pos-${player.positionShort.toLowerCase()}">${player.positionShort}</span></td>
+          <td>${player.age} años</td>
+          <td>${player.height || '1.70 m'}</td>
+          <td>${player.foot}</td>
+          <td>${player.nation || 'Chile 🇨🇱'}</td>
+          <td class="num-bold text-gold">${player.marketValue || '€150,000'}</td>
+          <td class="num-sports">${player.history.partidos}</td>
+          <td class="num-bold text-orange">${player.history.goles}</td>
+          <td class="num-bold text-gold">${player.history.asistencias}</td>
+          <td class="rating-cell">⭐ ${player.rating.toFixed(1)}</td>
+          <td style="text-align: right;">
+            <a href="jugador-detalle.html?id=${player.id}" class="table-btn-action">
+              Ver Ficha <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </td>
+        </tr>
+      `).join('');
+    }
+  </script>
+</body>
+</html>

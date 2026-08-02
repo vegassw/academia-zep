@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil de Jugador & Ficha Técnica | Academia ZEP</title>
+  <meta name="description" content="Ficha técnica del jugador en Academia ZEP - Estadísticas, metas de desarrollo, trayectoria y atributos.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,500;0,700;1,700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="navbar-brand">
+        <div class="logo-fire-wrap">
+          <canvas id="logoFireCanvas" width="60" height="60"></canvas>
+          <img src="assets/zep-logo.png" alt="Academia ZEP Logo" class="brand-logo" id="navLogo3D">
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">ACADEMIA <span class="text-orange">ZEP</span></span>
+          <span class="brand-sub">FÚTBOL FORMATIVO DE ALTO NIVEL</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="plantilla.html" class="nav-link">Plantilla Transfermarkt</a>
+        <a href="jugador-detalle.html?id=p1" class="nav-link active">Perfil Jugador</a>
+        <a href="escuelas.html" class="nav-link">Escuelas & Pilares ZEP</a>
+        <a href="index.html#contacto" class="nav-link nav-btn-cta">Inscribirse</a>
+      </nav>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- PLAYER HEADER PROFILE SECTION -->
+  <section class="section" style="padding-top: 110px;">
+    <div class="container">
+      
+      <!-- BACK TO SQUAD LINK -->
+      <div style="margin-bottom: 1.5rem;">
+        <a href="plantilla.html" class="btn-flip-back" style="display: inline-flex; text-decoration: none;">
+          <i class="fa-solid fa-arrow-left"></i> Volver a la Plantilla Transfermarkt
+        </a>
+      </div>
+
+      <!-- DETAILED PLAYER CARNET BOARD -->
+      <div class="player-profile-board card-glass" id="playerDetailMain">
+        <!-- Filled by JS based on URL query param ?id=... -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/zep-logo.png" alt="Academia ZEP Logo" style="height: 40px;">
+          <span class="brand-title">ACADEMIA <span class="text-orange">ZEP</span></span>
+        </div>
+        <p class="footer-desc">Formación de futbolistas con valores, metodología moderna y tecnología aplicada al deporte.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="plantilla.html">Plantilla Transfermarkt</a>
+        <a href="escuelas.html">Escuelas ZEP</a>
+        <a href="jugador-detalle.html?id=p1">Perfil Matías Ovalles</a>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contacto & Complejo</h4>
+        <p><i class="fa-solid fa-location-dot text-orange"></i> Santiago de Chile</p>
+        <p><i class="fa-solid fa-phone text-orange"></i> +56 9 8765 4321</p>
+        <p><i class="fa-solid fa-envelope text-orange"></i> contacto@academiazep.cl</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 Academia ZEP. Prototipo de alto nivel visual para cliente.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const pid = urlParams.get('id') || 'p1';
+      renderPlayerProfileBoardCustom(pid);
+    });
+
+    function renderPlayerProfileBoardCustom(playerId) {
+      const board = document.getElementById("playerDetailMain");
+      if (!board) return;
+
+      const player = playersData.find(p => p.id === playerId) || playersData[0];
+      const { stats, objectives } = player;
+
+      board.innerHTML = `
+        <div class="profile-sidebar">
+          <div class="profile-carnet-badge">
+            <div class="card-top-row">
+              <span class="card-number">#${player.number}</span>
+              <div class="card-stars">${renderStars(player.rating)}</div>
+            </div>
+
+            <div class="profile-avatar-lg">
+              <img src="${player.avatar}" alt="${player.name}">
+            </div>
+
+            <h3 class="profile-name">${player.name}</h3>
+            <span class="profile-position-badge">${player.positionFull}</span>
+            
+            <div class="profile-quick-meta">
+              <div>
+                <span>Categoría</span>
+                <strong>${player.categoryLabel}</strong>
+              </div>
+              <div>
+                <span>Edad</span>
+                <strong>${player.age} años</strong>
+              </div>
+              <div>
+                <span>Pie Hábil</span>
+                <strong>${player.foot}</strong>
+              </div>
+              <div>
+                <span>Valor Formativo</span>
+                <strong class="text-gold">${player.marketValue || '€150,000'}</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-details-main">
+          <div>
+            <h4 class="details-block-title">
+              <i class="fa-solid fa-chart-simple"></i> Atributos Técnicos & Físicos ZEP
+            </h4>
+            <div class="stats-bars-grid">
+              <div class="stat-bar-item">
+                <div class="stat-bar-header"><span>Velocidad</span><span class="stat-bar-val">${stats.velocidad}%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width: ${stats.velocidad}%"></div></div>
+              </div>
+              <div class="stat-bar-item">
+                <div class="stat-bar-header"><span>Técnica</span><span class="stat-bar-val">${stats.tecnica}%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width: ${stats.tecnica}%"></div></div>
+              </div>
+              <div class="stat-bar-item">
+                <div class="stat-bar-header"><span>Tiro</span><span class="stat-bar-val">${stats.tiro}%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width: ${stats.tiro}%"></div></div>
+              </div>
+              <div class="stat-bar-item">
+                <div class="stat-bar-header"><span>Pase</span><span class="stat-bar-val">${stats.pase}%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width: ${stats.pase}%"></div></div>
+              </div>
+              <div class="stat-bar-item">
+                <div class="stat-bar-header"><span>Resistencia</span><span class="stat-bar-val">${stats.resistencia}%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width: ${stats.resistencia}%"></div></div>
+              </div>
+              <div class="stat-bar-item">
+                <div class="stat-bar-header"><span>Disciplina</span><span class="stat-bar-val">${stats.disciplina}%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width: ${stats.disciplina}%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="details-block-title">
+              <i class="fa-solid fa-bullseye"></i> Metas Individuales de Desarrollo ZEP
+            </h4>
+            <div class="objectives-list">
+              <div class="objective-item">
+                <div class="obj-header">
+                  <div class="obj-title-group"><div class="obj-icon"><i class="fa-solid fa-futbol"></i></div><span class="obj-name">${objectives.tech.title}</span></div>
+                  <span class="obj-percentage">${objectives.tech.progress}%</span>
+                </div>
+                <p class="obj-desc">${objectives.tech.desc}</p>
+                <div class="bar-track"><div class="bar-fill bar-fill-obj" style="width: ${objectives.tech.progress}%"></div></div>
+              </div>
+              <div class="objective-item">
+                <div class="obj-header">
+                  <div class="obj-title-group"><div class="obj-icon"><i class="fa-solid fa-person-running"></i></div><span class="obj-name">${objectives.phys.title}</span></div>
+                  <span class="obj-percentage">${objectives.phys.progress}%</span>
+                </div>
+                <p class="obj-desc">${objectives.phys.desc}</p>
+                <div class="bar-track"><div class="bar-fill bar-fill-obj" style="width: ${objectives.phys.progress}%"></div></div>
+              </div>
+              <div class="objective-item">
+                <div class="obj-header">
+                  <div class="obj-title-group"><div class="obj-icon"><i class="fa-solid fa-brain"></i></div><span class="obj-name">${objectives.attitude.title}</span></div>
+                  <span class="obj-percentage">${objectives.attitude.progress}%</span>
+                </div>
+                <p class="obj-desc">${objectives.attitude.desc}</p>
+                <div class="bar-track"><div class="bar-fill bar-fill-obj" style="width: ${objectives.attitude.progress}%"></div></div>
+              </div>
+              <div class="objective-item">
+                <div class="obj-header">
+                  <div class="obj-title-group"><div class="obj-icon"><i class="fa-solid fa-trophy"></i></div><span class="obj-name">${objectives.season.title}</span></div>
+                  <span class="obj-percentage">${objectives.season.progress}%</span>
+                </div>
+                <p class="obj-desc">${objectives.season.desc}</p>
+                <div class="bar-track"><div class="bar-fill bar-fill-obj" style="width: ${objectives.season.progress}%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>

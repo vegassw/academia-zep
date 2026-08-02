@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escuelas Especializadas & Pilares Metodológicos | Academia ZEP</title>
+  <meta name="description" content="Conoce la oferta pedagógica de Academia ZEP: Escuela Infantil, Escuela de Arqueros Pro, Fútbol Formativo y Liga Adultos. Evaluaciones físicas Navette/Yo-Yo.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,500;0,700;1,700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="navbar-brand">
+        <div class="logo-fire-wrap">
+          <canvas id="logoFireCanvas" width="60" height="60"></canvas>
+          <img src="assets/zep-logo.png" alt="Academia ZEP Logo" class="brand-logo" id="navLogo3D">
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">ACADEMIA <span class="text-orange">ZEP</span></span>
+          <span class="brand-sub">FÚTBOL FORMATIVO DE ALTO NIVEL</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="plantilla.html" class="nav-link">Plantilla Transfermarkt</a>
+        <a href="jugador-detalle.html?id=p1" class="nav-link">Perfil Jugador</a>
+        <a href="escuelas.html" class="nav-link active">Escuelas & Pilares ZEP</a>
+        <a href="index.html#contacto" class="nav-link nav-btn-cta">Inscribirse</a>
+      </nav>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ESCUELAS HERO BANNER -->
+  <section class="section" style="padding-top: 120px;">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> METODOLOGÍA PRO INTEGRAL</span>
+        <h1 class="section-title">Escuelas Especializadas ZEP</h1>
+        <p class="section-subtitle">Modelos de entrenamiento adaptados para cada etapa del desarrollo deportivo. Haz clic en el botón de cada tarjeta para girarla 3D y conocer sus evaluaciones de campo.</p>
+      </div>
+
+      <!-- 3D FLIP CARDS GRID -->
+      <div class="flip-cards-grid">
+        
+        <!-- CARD 1: ESCUELA INFANTIL -->
+        <div class="flip-card" id="card-infantil">
+          <div class="flip-card-inner">
+            <div class="flip-card-front card-glass">
+              <div class="card-front-img bg-infantil">
+                <span class="card-badge-top">EDADES 6 A 12 AÑOS</span>
+              </div>
+              <div class="card-front-body">
+                <h3 class="program-card-title">Escuela Fútbol Infantil</h3>
+                <p class="program-card-desc">Desarrollo psicomotor, coordinación básica, dominio de balón y primeros fundamentos colectivos.</p>
+                <div class="program-highlights">
+                  <span><i class="fa-solid fa-bolt"></i> Control Orientado</span>
+                  <span><i class="fa-solid fa-heart"></i> Valores ZEP</span>
+                </div>
+                <button class="btn-flip" onclick="toggleFlip('card-infantil')">
+                  Ver Pilares & Evaluaciones Físicas <i class="fa-solid fa-rotate-right"></i>
+                </button>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <div class="back-header">
+                <span class="back-tag">METODOLOGÍA INFANTIL</span>
+                <h4>Detalle Pedagógico & Evaluaciones</h4>
+              </div>
+              <div class="back-pillars-list">
+                <div class="back-pillar-item">
+                  <i class="fa-solid fa-futbol text-orange"></i>
+                  <div><strong>Técnica:</strong> Dominio de ambos perfiles, conducción con cabeza levantada y pase en espacio reducido.</div>
+                </div>
+                <div class="back-pillar-item">
+                  <i class="fa-solid fa-vial text-green"></i>
+                  <div><strong>Evaluaciones Físicas:</strong> Test de Campo (Navette / Yo-Yo Intermitente) y plataforma de salto de contacto.</div>
+                </div>
+                <div class="back-pillar-item">
+                  <i class="fa-solid fa-brain text-gold"></i>
+                  <div><strong>Psicológico & Fair Play:</strong> Manejo de la frustración, respeto al árbitro y compañerismo.</div>
+                </div>
+              </div>
+              <div class="back-actions">
+                <button class="btn-flip-back" onclick="toggleFlip('card-infantil')">
+                  <i class="fa-solid fa-arrow-left"></i> Volver
+                </button>
+                <a href="index.html#contacto" class="btn-primary-xs">Inscribirse <i class="fa-solid fa-chevron-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2: ESCUELA DE ARQUEROS (PRO) -->
+        <div class="flip-card featured-flip" id="card-arqueros">
+          <div class="flip-card-inner">
+            <div class="flip-card-front card-glass">
+              <div class="card-front-img bg-arqueros">
+                <span class="card-badge-top featured-tag-top">ESPECIALIDAD PRO ARQUEROS</span>
+              </div>
+              <div class="card-front-body">
+                <h3 class="program-card-title">Escuela de Arqueros ZEP</h3>
+                <p class="program-card-desc">Programa especializado de alto rendimiento para guardametas. Biomecánica, achiques 1vs1 y juego de pies.</p>
+                <div class="program-highlights">
+                  <span><i class="fa-solid fa-hands-holding"></i> Achiques 1vs1</span>
+                  <span><i class="fa-solid fa-stopwatch"></i> Tiempo Reacción</span>
+                </div>
+                <button class="btn-flip btn-flip-orange" onclick="toggleFlip('card-arqueros')">
+                  Ver Biomecánica & Evaluaciones <i class="fa-solid fa-rotate-right"></i>
+                </button>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <div class="back-header">
+                <span class="back-tag text-gold">CENTRO DE PORTEROS</span>
+                <h4>Detalle de Especialización</h4>
+              </div>
+              <div class="back-pillars-list">
+                <div class="back-pillar-item">
+                  <i class="fa-solid fa-hands-holding text-orange"></i>
+                  <div><strong>Técnica de Bloqueo:</strong> Embolse seguro, caídas amortiguadas y despejes de puños.</div>
+                </div>
+                <div class="back-pillar-item">
+                  <i class="fa-solid fa-shoe-prints text-green"></i>
+                  <div><strong>Juego de Pies:</strong> Salida limpia desde el fondo, pase filtrado para romper líneas.</div>
+                </div>
+                <div class="back-pillar-item">
+                  <i class="fa-solid fa-gauge-high text-gold"></i>
+                  <div><strong>Métricas de Reacción:</strong> Medición en milisegundos de tiempo de respuesta ante tiros a quemarropa.</div>
+                </div>
+              </div>
+              <div class="back-actions">
+                <button class="btn-flip-back" onclick="toggleFlip('card-arqueros')">
+                  <i class="fa-solid fa-arrow-left"></i> Volver
+                </button>
+                <a href="index.html#contacto" class="btn-primary-xs">Inscribir Portero <i class="fa-solid fa-chevron-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: FORMATIVA Y JUVENIL -->
+        <div class="flip-card" id="card-juvenil">
+          <div class="flip-card-inner">
+            <div class="flip-card-front card-glass">
+              <div class="card-front-img bg-juvenil">
+                <span class="card-badge-top">SUB-14 A SUB-18 PRO</span>
+              </div>
+              <div class="card-front-body">
+                <h3 class="program-card-title">Fútbol Formativo & Pro</h3>
+                <p class="program-card-desc">Perfeccionamiento táctico por bloques, sistemas de juego complejos y proyección a pruebas de clubes.</p>
+                <div class="program-highlights">
+                  <span><i class="fa-solid fa-diagram-project"></i> Táctica por Bloques</span>
+                  <span><i class="fa-solid fa-medal"></i> Proyección Pro</span>
+                </div>
+                <button class="btn-flip" onclick="toggleFlip('card-juvenil')">
+                  Ver Sistemas & Táctica <i class="fa-solid fa-rotate-right"></i>
+                </button>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <div class="back-header">
+                <span class="back-tag">FORMATIVO Y COMPETENCIA</span>
+                <h4>Detalle Táctico & Físico</h4>
+              </div>
+              <div class="back-pillars-list">
+                <div class="back-pillar-item">
+                  <i class="fa-solid fa-chess-board text-orange"></i>
+                  <div><strong>Sistemas Tácticos:</strong> Modelos 4-3-3 / 4-2-3-1, pressings tras pérdida y transiciones.</div>
+                </div>
+                <div class="back-pillar-item">
+                  <i class="fa-solid fa-dumbbell text-green"></i>
+                  <div><strong>Acondicionamiento:</strong> Trabajo de fuerza explosiva, velocidad aeróbica máxima.</div>
+                </div>
+              </div>
+              <div class="back-actions">
+                <button class="btn-flip-back" onclick="toggleFlip('card-juvenil')">
+                  <i class="fa-solid fa-arrow-left"></i> Volver
+                </button>
+                <a href="index.html#contacto" class="btn-primary-xs">Postular <i class="fa-solid fa-chevron-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4: ADULTOS -->
+        <div class="flip-card" id="card-adultos">
+          <div class="flip-card-inner">
+            <div class="flip-card-front card-glass">
+              <div class="card-front-img bg-adultos">
+                <span class="card-badge-top">COMUNIDAD APODERADOS</span>
+              </div>
+              <div class="card-front-body">
+                <h3 class="program-card-title">Escuela Fútbol Adultos</h3>
+                <p class="program-card-desc">Cardio fútbol, reacondicionamiento saludable y liga interna nocturna para apoderados y adultos.</p>
+                <div class="program-highlights">
+                  <span><i class="fa-solid fa-heart-pulse"></i> Cardio Fútbol</span>
+                  <span><i class="fa-solid fa-trophy"></i> Torneo Interno</span>
+                </div>
+                <button class="btn-flip" onclick="toggleFlip('card-adultos')">
+                  Ver Programa de Salud <i class="fa-solid fa-rotate-right"></i>
+                </button>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <div class="back-header">
+                <span class="back-tag">SALUD Y RECREACIÓN</span>
+                <h4>Detalle para Adultos</h4>
+              </div>
+              <div class="back-pillars-list">
+                <div class="back-pillar-item">
+                  <i class="fa-solid fa-fire text-orange"></i>
+                  <div><strong>Salud y Vida Activa:</strong> Dejar el sedentarismo con pautas adaptadas.</div>
+                </div>
+                <div class="back-pillar-item">
+                  <i class="fa-solid fa-users-gear text-green"></i>
+                  <div><strong>Partidos Guiados:</strong> Entrenamientos con árbitros oficiales e indumentaria.</div>
+                </div>
+              </div>
+              <div class="back-actions">
+                <button class="btn-flip-back" onclick="toggleFlip('card-adultos')">
+                  <i class="fa-solid fa-arrow-left"></i> Volver
+                </button>
+                <a href="index.html#contacto" class="btn-primary-xs">Unirse <i class="fa-solid fa-chevron-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- INTERACTIVE METHODOLOGICAL PILLARS ACCORDION -->
+      <div class="pillars-accordion-section" style="margin-top: 3rem;">
+        <h3 class="pillars-main-title">
+          <i class="fa-solid fa-layer-group"></i> Los 4 Pilares Metodológicos del Método ZEP
+        </h3>
+        
+        <div class="pillars-tabs">
+          <button class="pillar-tab-btn active" onclick="showPillar('tecnico')">
+            <i class="fa-solid fa-futbol"></i> 1. Aspecto Técnico
+          </button>
+          <button class="pillar-tab-btn" onclick="showPillar('fisico')">
+            <i class="fa-solid fa-bolt"></i> 2. Aspecto Físico & Evaluaciones
+          </button>
+          <button class="pillar-tab-btn" onclick="showPillar('tactico')">
+            <i class="fa-solid fa-diagram-project"></i> 3. Aspecto Táctico
+          </button>
+          <button class="pillar-tab-btn" onclick="showPillar('psicologico')">
+            <i class="fa-solid fa-brain"></i> 4. Aspecto Psicológico & Fair Play
+          </button>
+        </div>
+
+        <div class="pillar-content-box card-glass" id="pillarContentBox">
+          <!-- Dynamically filled by JS -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/zep-logo.png" alt="Academia ZEP Logo" style="height: 40px;">
+          <span class="brand-title">ACADEMIA <span class="text-orange">ZEP</span></span>
+        </div>
+        <p class="footer-desc">Formación de futbolistas con valores, metodología moderna y tecnología aplicada al deporte.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="plantilla.html">Plantilla Transfermarkt</a>
+        <a href="escuelas.html">Escuelas ZEP</a>
+        <a href="jugador-detalle.html?id=p1">Perfil Matías Ovalles</a>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contacto & Complejo</h4>
+        <p><i class="fa-solid fa-location-dot text-orange"></i> Santiago de Chile</p>
+        <p><i class="fa-solid fa-phone text-orange"></i> +56 9 8765 4321</p>
+        <p><i class="fa-solid fa-envelope text-orange"></i> contacto@academiazep.cl</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 Academia ZEP. Prototipo de alto nivel visual para cliente.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
