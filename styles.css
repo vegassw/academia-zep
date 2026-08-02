@@ -3093,6 +3093,21 @@ button {
   .stats-bars-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   
+  .player-profile-board, .pillars-accordion-section {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  
+  .tm-squad-table th, .tm-squad-table td {
+    white-space: nowrap;
+  }
+  
+  .stat-bar-header {
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+  
   .section {
     padding: 3.5rem 0;
   }
