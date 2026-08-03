@@ -38,7 +38,7 @@ export const PlayerDetailPage = () => {
   };
 
   return (
-    <section className="section" style={{ paddingTop: 120 }}>
+    <section className="section tm-detail-section">
       <div className="container">
         
         {/* SUBNAVEGACION */}
@@ -102,29 +102,13 @@ export const PlayerDetailPage = () => {
                   <span className="tm-data-value">{player.foot}</span>
                 </div>
                 <div className="tm-data-row">
-                  <span className="tm-data-label">Club actual:</span>
-                  <span className="tm-data-value tm-text-link">
-                    <img src="/logo.png" alt="ZEP" className="tm-inline-logo" /> Academia ZEP
-                  </span>
-                </div>
-                <div className="tm-data-row">
                   <span className="tm-data-label">Proyección:</span>
                   <span className="tm-data-value">Alto Rendimiento Formativo</span>
                 </div>
               </div>
             </div>
 
-            {/* AUDIO PRONUNCIATION (Visual Mockup) */}
-            <div className="tm-card">
-              <div className="tm-data-row" style={{ borderBottom: 'none' }}>
-                <span className="tm-data-label">Pronunciación del nombre</span>
-              </div>
-              <div className="tm-audio-player">
-                <i className="fa-solid fa-play tm-audio-icon"></i>
-                <div className="tm-audio-track"></div>
-                <Volume2 size={16} className="tm-audio-icon" />
-              </div>
-            </div>
+
 
           </div>
 

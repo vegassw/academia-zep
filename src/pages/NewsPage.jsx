@@ -5,7 +5,7 @@ import { newsData } from '../data/newsData';
 
 export const NewsPage = () => {
   return (
-    <section className="section" style={{ paddingTop: 120 }}>
+    <section className="section page-top-padding">
       <div className="container">
         <div className="section-header center">
           <span className="section-tag"><Newspaper size={16} className="inline mr-1 text-orange" /> ACTUALIDAD DEPORTIVA</span>

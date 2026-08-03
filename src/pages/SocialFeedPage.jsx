@@ -39,7 +39,7 @@ export const SocialFeedPage = () => {
   ];
 
   return (
-    <section className="section" style={{ paddingTop: 120 }}>
+    <section className="section page-top-padding">
       <div className="container" style={{ maxWidth: 800 }}>
         <div className="section-header center">
           <span className="section-tag"><Instagram size={16} className="inline mr-1 text-orange" /> COMUNIDAD DIGITAL</span>

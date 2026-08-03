@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { playersData } from '../data/playersData';
 import { Link } from 'react-router-dom';
 import { Filter, Search, Award, ArrowRight, UserCheck, Shield } from 'lucide-react';
+import '../styles-tm-override.css';
 
 export const SquadPage = () => {
   const [posFilter, setPosFilter] = useState('all');
@@ -35,22 +36,22 @@ export const SquadPage = () => {
               </div>
             </div>
 
-            <div className="tm-stats-grid">
-              <div className="tm-stat-box">
-                <span className="tm-stat-label">Jugadores Formativos</span>
-                <span className="tm-stat-val text-gold">180+ Alumnos</span>
+            <div className="tm-stats-single-box">
+              <div className="tm-stat-item">
+                <span className="tm-stat-label">Formativos</span>
+                <span className="tm-stat-val text-gold">180+</span>
               </div>
-              <div className="tm-stat-box">
-                <span className="tm-stat-label">Promedio de Edad</span>
-                <span className="tm-stat-val">13.8 Años</span>
+              <div className="tm-stat-item">
+                <span className="tm-stat-label">Edad Prom.</span>
+                <span className="tm-stat-val">13.8</span>
               </div>
-              <div className="tm-stat-box">
-                <span className="tm-stat-label">Selección Regional</span>
-                <span className="tm-stat-val text-orange">4 Convocados</span>
+              <div className="tm-stat-item">
+                <span className="tm-stat-label">Selección</span>
+                <span className="tm-stat-val text-orange">4</span>
               </div>
-              <div className="tm-stat-box">
-                <span className="tm-stat-label">Complejo Base</span>
-                <span className="tm-stat-val">Cancha 1 ZEP</span>
+              <div className="tm-stat-item">
+                <span className="tm-stat-label">Sede</span>
+                <span className="tm-stat-val">Cancha 1</span>
               </div>
             </div>
           </div>

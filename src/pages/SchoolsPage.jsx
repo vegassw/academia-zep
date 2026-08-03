@@ -5,7 +5,7 @@ import { Sparkles } from 'lucide-react';
 
 export const SchoolsPage = () => {
   return (
-    <section className="section" style={{ paddingTop: 120 }}>
+    <section className="section page-top-padding">
       <div className="container">
         <div className="section-header center">
           <span className="section-tag"><Sparkles size={16} className="inline mr-1" /> METODOLOGÍA PRO INTEGRAL</span>

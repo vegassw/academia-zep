@@ -1,4 +1,8 @@
 /* TRANSFERMARKT STYLE OVERRIDES FOR ZEP PLAYER DETAILS */
+.tm-detail-section {
+  padding-top: 120px;
+}
+
 
 .tm-subnav {
   background: var(--zep-dark);
@@ -294,6 +298,22 @@
   padding: 1.5rem !important;
 }
 
+.tm-stats-single-box {
+  display: flex;
+  justify-content: space-around;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--zep-border);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.tm-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .tm-player-layout {
@@ -317,3 +337,45 @@
     border-right: none;
   }
 }
+
+@media (max-width: 768px) {
+  /* Squad banner mobile optimizations */
+  .tm-detail-section {
+    padding-top: 80px;
+  }
+  .tm-banner-section {
+    padding-top: 80px;
+    padding-bottom: 1rem;
+  }
+  .tm-header-card {
+    padding: 1.2rem;
+  }
+  .tm-header-main {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+  .tm-badge-shield img {
+    height: 60px;
+  }
+  .tm-title {
+    font-size: 1.5rem;
+  }
+  .tm-meta-desc {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+  .tm-stats-single-box {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .tm-stat-item {
+    width: 45%;
+    margin-bottom: 0.5rem;
+  }
+}
+

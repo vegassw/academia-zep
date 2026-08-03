@@ -5,7 +5,7 @@ export const TournamentsPage = () => {
   const [activeTab, setActiveTab] = useState('copa-santiago');
 
   return (
-    <section className="section section-dark" style={{ paddingTop: 120 }}>
+    <section className="section section-dark page-top-padding">
       <div className="container">
         <div className="section-header center">
           <span className="section-tag"><i className="fa-solid fa-shield-halved"></i> COMPETENCIA REGIONAL</span>

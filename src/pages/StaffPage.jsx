@@ -30,7 +30,7 @@ export const StaffPage = () => {
   ];
 
   return (
-    <section className="section" style={{ paddingTop: 120 }}>
+    <section className="section page-top-padding">
       <div className="container">
         <div className="section-header center">
           <span className="section-tag"><i className="fa-solid fa-clipboard-user"></i> LIDERAZGO FORMATIVO</span>

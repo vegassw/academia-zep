@@ -19,7 +19,7 @@ export const CategoriesPage = () => {
   const displayPlayers = filtered.length > 0 ? filtered : playersData.slice(0, 4);
 
   return (
-    <section className="section" style={{ paddingTop: 120 }}>
+    <section className="section page-top-padding">
       <div className="container">
         <div className="section-header center">
           <span className="section-tag"><Layers size={16} className="inline mr-1 text-orange" /> ESTRUCTURA DEPORTIVA</span>

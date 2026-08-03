@@ -8,7 +8,7 @@ export const NewsDetailPage = () => {
   const article = newsData.find(n => n.id === id) || newsData[0];
 
   return (
-    <section className="section" style={{ paddingTop: 120 }}>
+    <section className="section page-top-padding">
       <div className="container" style={{ maxWidth: 900 }}>
         
         {/* BACK BUTTON */}
@@ -19,12 +19,12 @@ export const NewsDetailPage = () => {
         </div>
 
         {/* ARTICLE HEADER & HERO IMAGE */}
-        <article className="card-glass" style={{ padding: '2.5rem', borderRadius: '20px' }}>
+        <article className="card-glass news-detail-article">
           <div style={{ marginBottom: '1.5rem' }}>
             <span className="news-category-badge" style={{ position: 'static', display: 'inline-block', marginBottom: '1rem' }}>
               {article.category}
             </span>
-            <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.4rem', fontWeight: 900, color: '#fff', lineHeight: 1.2, marginBottom: '1rem' }}>
+            <h1 className="news-detail-title">
               {article.title}
             </h1>
             
@@ -37,17 +37,16 @@ export const NewsDetailPage = () => {
               </span>
             </div>
           </div>
-
-          {/* MAIN FEATURED PHOTO */}
-          <div style={{ width: '100%', height: 420, borderRadius: 14, overflow: 'hidden', marginBottom: '2rem' }}>
-            <img src={article.image} alt={article.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-          </div>
-
           {/* SUMMARY CALLOUT */}
           <div style={{ background: 'rgba(255,85,0,0.08)', borderLeft: '4px solid var(--zep-orange)', padding: '1.2rem 1.5rem', borderRadius: '0 10px 10px 0', marginBottom: '2rem' }}>
             <p style={{ color: '#fff', fontSize: '1.1rem', fontWeight: 600, fontStyle: 'italic', lineHeight: 1.6 }}>
               "{article.summary}"
             </p>
+          </div>
+
+          {/* MAIN FEATURED PHOTO */}
+          <div className="news-detail-hero-img">
+            <img src={article.image} alt={article.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
 
           {/* ARTICLE BODY PARAGRAPHS */}
